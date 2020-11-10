@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1604997525725">
+<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1604998186688">
 <link rel="stylesheet" href="https://wo-ki.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@ Gridea 主页
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wo-ki.github.io">
-        <img src="https://wo-ki.github.io/images/avatar.png?v=1604997525725" class="site-logo">
+        <img src="https://wo-ki.github.io/images/avatar.png?v=1604998186688" class="site-logo">
         <h1 class="site-title">Wo-Ki</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -165,5 +165,25 @@ var app = new Vue({
 
 
 
+      
+    <!--载入js，在</body>之前插入即可-->
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库-->
+    <script src="/media/scripts/Valine.min.js"></script>
+<div class="comment"></div>
+<script>
+    new Valine({
+        // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+        av: AV, 
+        el: '.comment',
+	      lang: 'zh-cn',//设置评论语言
+        emoticon_url: 'https://cloud.panjunwen.com/alu',
+  emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+  app_id: '你的id',
+  app_key: '你的key',
+  placeholder: '评论留言'
+    });
+</script>    
   </body>
 </html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2020-11-10T08:49:41.480Z</updated>
+    <updated>2020-11-10T09:16:55.718Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://wo-ki.github.io/images/avatar.png</logo>
     <icon>https://wo-ki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Wo-Ki</rights>
+    <entry>
+        <title type="html"><![CDATA[[ICCV17] Learning Efficient Convolutional Networks through Network Slimming阅读]]></title>
+        <id>https://wo-ki.github.io/post/Learning Efficient Convolutional Networks through Network Slimming/</id>
+        <link href="https://wo-ki.github.io/post/Learning Efficient Convolutional Networks through Network Slimming/">
+        </link>
+        <updated>2020-11-10T08:33:35.000Z</updated>
+        <content type="html"><![CDATA[<p>哈</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://wo-ki.github.io/post/hello-gridea/</id>
