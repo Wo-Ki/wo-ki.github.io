@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1604998186688">
+<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1607859874275">
 <link rel="stylesheet" href="https://wo-ki.github.io/styles/main.css">
 
 
@@ -21,6 +21,10 @@
     <meta name="description" content="哈
 " />
     <meta name="keywords" content="pruning" />
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库-->
+    <script src="//cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
   </head>
   <body>
     <div id="app" class="main">
@@ -29,7 +33,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wo-ki.github.io">
-        <img src="https://wo-ki.github.io/images/avatar.png?v=1604998186688" class="site-logo">
+        <img src="https://wo-ki.github.io/images/avatar.png?v=1607859874275" class="site-logo">
         <h1 class="site-title">Wo-Ki</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -121,11 +125,14 @@
             
 
           </div>
-
+        <div class="comment"></div>
         </div>
       </div>
     </div>
+   <!--载入js，在</body>之前插入即可-->
 
+<!--    <div class="comment"></div>-->
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script type="application/javascript">
 
@@ -146,12 +153,6 @@ var app = new Vue({
 
 
       
-    <!--载入js，在</body>之前插入即可-->
-    <!--Leancloud 操作库:-->
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <!--Valine 的核心代码库-->
-    <script src="/media/scripts/Valine.min.js"></script>
-    <div class="comment"></div>
     <script>
         new Valine({
             // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
