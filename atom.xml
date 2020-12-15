@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2020-12-15T03:10:52.680Z</updated>
+    <updated>2020-12-15T03:16:00.025Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -16,31 +16,21 @@
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>20201215 晴
-</code></pre>
+        <content type="html"><![CDATA[<h1 id="20201215-晴">20201215 晴</h1>
 <ul>
 <li>Gridea有mac、Linux、windows版本，但是看paper、写东西啥的，主要还是在iPad上。于是提了一个issue：Gridea for iPad。店家回复用web版本。。。还果断回复不能支持apple pencil。突然发现，我竟然像无脑甲方</li>
-<li>
-<ul>
-<li>饿了么 *连续几天都是1.5块红包🧧，没爱了</li>
+<li>** 饿了么 **连续几天都是1.5块红包🧧，没爱了</li>
 </ul>
-</li>
-</ul>
-<pre><code>20201214 晴多云
-</code></pre>
+<h1 id="20201214-晴多云">20201214 晴多云</h1>
 <ul>
-<li>
-<p>同样的数据处理方式，在fp16后的tensorrt res32模型竟然输出像是随机数？难道是* normalize *的问题？</p>
-</li>
-<li>
-<p>南京下雪❄️了，本想打着试飞无人机的幌子，拍点不一样的朋友圈，结果要开会。下午又遇到* M级太阳风 *，影响GPS，惨！</p>
-<p>20201213 晴多云<br>
-一大早起来就7点40了，10点就公祭日的警钟长鸣，计划前往云锦路的南京大屠杀遇难同胞纪念馆。抓紧洗刷完，骑上爱车🚴，吃了两个包子就出发了。一路上，一些地方就有摆花圈，还会有人卖花。到站还有半个多小时才开始，就溜达一会，发个朋友圈🕯️。<br>
+<li>同样的数据处理方式，在fp16后的tensorrt res32模型竟然输出像是随机数？难道是** normalize **的问题？</li>
+<li>南京下雪❄️了，本想打着试飞无人机的幌子，拍点不一样的朋友圈，结果要开会。下午又遇到 ** M级太阳风 ** ，影响GPS，惨！</li>
+</ul>
+<h1 id="20201213-晴多云">20201213 晴多云</h1>
+<p>一大早起来就7点40了，10点就公祭日的警钟长鸣，计划前往云锦路的南京大屠杀遇难同胞纪念馆。抓紧洗刷完，骑上爱车🚴，吃了两个包子就出发了。一路上，一些地方就有摆花圈，还会有人卖花。到站还有半个多小时才开始，就溜达一会，发个朋友圈🕯️。<br>
 到点了，才发现车鸣声碾压警钟声，默哀也不清楚开头和结束。虽然封路，人还是很多的，很是震撼。当然，由于走错了，并不是最合适的地方，可能要下次了。<br>
 回到正题，云锦路的南京大屠杀遇难同胞纪念馆，这个名字往往被人简化为“大屠杀纪念馆”，这可真的是意义相反甚远，甚至是完全相反，门同学每次都会纠正别人这个错误👍。<br>
 来回骑行了35km左右，已经快不行了，石臼湖的计划有点慌。下午破费，续费了学生优惠的健身卡，顺便游泳🏊会，练了个肩，引体还是4个😓，桌球也是一踏糊涂。但是沙县的🍗炒饭还是棒。over～</p>
-</li>
-</ul>
 ]]></content>
     </entry>
     <entry>
