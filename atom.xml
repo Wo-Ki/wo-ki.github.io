@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2020-12-16T11:26:13.205Z</updated>
+    <updated>2020-12-17T08:36:40.976Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -16,7 +16,12 @@
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="20201216-晴">20201216 晴</h1>
+        <content type="html"><![CDATA[<h1 id="20201217-晴">20201217 晴</h1>
+<ul>
+<li>Linux接入双网卡网线，还需要配置路由啊。。。想想也是</li>
+<li>终于在pynq-z2上<strong>跑通了</strong>大佬🧍‍♂️的yolov2 <a href="https://github.com/dhm2013724/yolov2_xilinx_fpga">yolov2_xilinx_fpga</a>，fps感人，0.69！！！代码相当复杂，为啥有bit文件了，还要有这么多模型相关代码？有的嚼了</li>
+</ul>
+<h1 id="20201216-晴">20201216 晴</h1>
 <ul>
 <li>无脑甲方，快验收了加需求，一点都不考虑风险期。效果不好不很正常，心急吃不了热豆腐</li>
 <li>KZ项目收集数据了一天。早上6点的闹钟被我随手关了，差点迟到。中午、晚上还都要去，真冷</li>
