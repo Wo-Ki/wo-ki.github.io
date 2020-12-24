@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2020-12-23T09:19:31.280Z</updated>
+    <updated>2020-12-24T10:51:37.178Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -18,13 +18,11 @@
         <updated>2020-12-13T11:27:17.000Z</updated>
         <content type="html"><![CDATA[<h1 id="20201223">20201223 🌞</h1>
 <ul>
-<li>gopro hero 7 black到了，闲鱼大佬配件真全，真像。还送了内存卡，里面的滑雪🎿真cool啊，有点想法💡</li>
-<li>rgb和红外对齐真不是简单透视变化就可以了，opencv的摄像头畸变矫正也需要同时采集红外和rgb的棋盘数据，但是棋盘不发热😓，难搞</li>
+<li>平安夜🤶，发了苹果🍎，哈哈哈</li>
 </ul>
 <h1 id="20201222">20201222 🌞</h1>
 <ul>
 <li>体检的感觉还不错，抽血💉最多的一次，4个管子，还第一次验尿。。。当然，还有免费的早餐🥣，nice</li>
-<li>opencv的摄像头解决畸变后，分辨率暴跌啊</li>
 </ul>
 <h1 id="20201221">20201221 🌞</h1>
 <ul>
