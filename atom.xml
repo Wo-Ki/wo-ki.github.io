@@ -2,21 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2020-12-27T08:57:28.888Z</updated>
+    <updated>2021-01-03T10:34:19.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
     <subtitle>📝</subtitle>
     <logo>https://wo-ki.github.io/images/avatar.png</logo>
     <icon>https://wo-ki.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Wo-Ki</rights>
+    <rights>All rights reserved 2021, Wo-Ki</rights>
     <entry>
         <title type="html"><![CDATA[避免忘记]]></title>
         <id>https://wo-ki.github.io/post/bi-mian-wang-ji/</id>
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="20201227">20201227 🌞</h1>
+        <content type="html"><![CDATA[<h1 id="20210103">20210103 🌞</h1>
+<ul>
+<li>竟然睡到了10点，，，下午回南京</li>
+</ul>
+<h1 id="20210102">20210102 🌞</h1>
+<ul>
+<li>今天去了南禅寺，没有去烧香，基本上吃喝过了一下午</li>
+</ul>
+<h1 id="20210101">20210101 🌞</h1>
+<ul>
+<li>今天放假，前往无锡，带了好多药💊</li>
+<li>下午去了新开的商场——八佰伴，还真的大，人超多，喝杯奶茶🥤就要等很久，没买了，在外面买了coco，还有正新的面筋</li>
+</ul>
+<h1 id="20201231">20201231 🌞</h1>
+<ul>
+<li>跨年了，聚餐吃饭</li>
+<li>凌晨🕛好多群在发红包，吃饭的钱💰省下来了</li>
+</ul>
+<h1 id="20201230">20201230 🌞</h1>
+<ul>
+<li>参加了第三届江苏人工智能大会，800块的学生票，不仅包饭还有免费卫衣</li>
+<li>最重要的是见识到很多（虽然很困），晚上还成为演员上台领奖</li>
+</ul>
+<h1 id="20201229-️">20201229 ❄️</h1>
+<ul>
+<li>为消灭幽门螺旋杆菌，一大早去了鼓楼医院，除了医保卡支出，个人账户是啥？反正没出一分现金</li>
+<li>下午下雪，有点期待呀</li>
+</ul>
+<h1 id="20201228">20201228 🌞</h1>
+<ul>
+<li>海康真的是大头，硬件好，软件也好，还比某某某些产品便宜，认准就对了</li>
+<li>如何评价工作饱和度呢？真的爱加班就好吗？</li>
+</ul>
+<h1 id="20201227">20201227 🌞</h1>
 <ul>
 <li>昨晚太累了，今早才剪视频。GoPro App太傻了，换个背景music还要等待⌛️一会</li>
 <li>Pynq官网的例子还不错，但GitHub上的。。。好多都不支持pynq-z2，还很老</li>
