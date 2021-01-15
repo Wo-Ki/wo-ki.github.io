@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>阿里云ECS上搭建openVPN | Wo-Ki</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1610702298500">
+<link rel="stylesheet" href="https://wo-ki.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一、简介
+
+外网无法访问内网主机，所以需要打通
+openVPN可以借助有公网的设备（本文是阿里云ECS），将内网机器暴露在公网机器中，所以可以在外网访问
+
+二、环境
+
+（服务端）阿里云ECS（九块九）：ubuntu 18.04
+（客户端）u..." />
+    <meta name="keywords" content="" />
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库-->
+    <script src="//cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wo-ki.github.io">
+        <img src="https://wo-ki.github.io/images/avatar.png?v=1610702298500" class="site-logo">
+        <h1 class="site-title">Wo-Ki</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      📝
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://wo-ki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">阿里云ECS上搭建openVPN</h2>
+            <div class="post-date">2021-01-15</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="一-简介">一、简介</h1>
+<ul>
+<li>外网无法访问内网主机，所以需要打通</li>
+<li>openVPN可以借助有公网的设备（本文是阿里云ECS），将内网机器暴露在公网机器中，所以可以在外网访问</li>
+</ul>
+<h1 id="二-环境">二、环境</h1>
+<ul>
+<li>（服务端）阿里云ECS（九块九）：ubuntu 18.04</li>
+<li>（客户端）ubuntu主机和MacBook pro</li>
+</ul>
+<h1 id="三-服务端安装">三、服务端安装</h1>
+<h2 id="1安装openvpn">1.安装OpenVPN</h2>
+<p>OpenVPN在Ubuntu的默认仓库中是可用的，所以我们可用使用apt来安装。我们还需安装一个easy-rsa包，这个包可以帮助我们建立一个内部CA（certificate authority）用于使用我们VPN。<br>
+更新你的服务器包索引并安装必要的包类型：</p>
+<pre><code class="language-bash">$ sudo apt-get update
+$ sudo apt-get install openvpn easy-rsa
+</code></pre>
+<h2 id="2设置ca目录">2.设置CA目录</h2>
+<p>OpenVPN 是使用 TLS/SSL 的 VPN。这意味着它利用证书来加密服务器和客户端之间的通信。为了发布受信任的证书，我们需要建立一个自己的简单的证书颁发机构(CA)。 使用 <strong>make-cadir</strong> 命令复制 easy-rsa 模板到 home 目录</p>
+<pre><code class="language-bash">$ make-cadir ~/openvpn/openvpn-ca
+</code></pre>
+<p>接着进入刚刚新建的目录准备配置 CA:</p>
+<pre><code class="language-bash">$ cd ~/openvpn/openvpn-ca
+$ ln -s openssl-1.0.0.cnf openssl.cnf
+</code></pre>
+<h2 id="3配置ca变量">3.配置CA变量</h2>
+<p>进入** ~/openvpn/openvpn-ca** 目录后，我们需要修改 vars 文件，以便于生成需要的 CA 值。<br>
+在文件底部找到以下配置：</p>
+<pre><code class="language-bash">export KEY_COUNTRY=&quot;US&quot;
+export KEY_PROVINCE=&quot;CA&quot;
+export KEY_CITY=&quot;SanFrancisco&quot;
+export KEY_ORG=&quot;Fort-Funston&quot;
+export KEY_EMAIL=&quot;me@myhost.mydomain&quot;
+export KEY_OU=&quot;MyOrganizationalUnit&quot;
+...
+</code></pre>
+<p>将这些变量修改为任意你喜欢的值，但是不要为空：</p>
+<pre><code class="language-bash">...
+export KEY_COUNTRY=&quot;CN&quot;
+export KEY_PROVINCE=&quot;ZJ&quot;
+export KEY_CITY=&quot;HZ&quot;
+export KEY_ORG=&quot;www.woki.com&quot;
+export KEY_EMAIL=&quot;wangqiang1588@sina.com&quot;
+export KEY_OU=&quot;com.woki&quot;
+...
+</code></pre>
+<p>然后，我们还要修改紧接着出现的 KEY_NAME 的值，为了简单起见，我们改为 <strong>server</strong>：</p>
+<pre><code class="language-bash">export KEY_NAME=&quot;server&quot;
+</code></pre>
+<h2 id="4构建ca证书">4.构建CA证书</h2>
+<p>首先进入你的 CA 目录，然后执行 source vars :</p>
+<pre><code class="language-bash">$ cd ~/openvpn/openvpn-ca
+$ source vars
+</code></pre>
+<p>接着会有以下输出：</p>
+<pre><code class="language-bash">NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/ubuntu/openvpn/openvpn-ca/keys
+</code></pre>
+<p>执行下列操作确保操作环境干净：</p>
+<pre><code class="language-bash">$ ./clean-all
+</code></pre>
+<p>现在我们可以构建根 CA：</p>
+<pre><code class="language-bash"># 如果执行时候报错
+# grep: /etc/openvpn/easy-rsa/2.0/openssl.cnf: No such file or directory
+# pkitool: KEY_CONFIG (set by the ./vars script) is pointing to the wrong
+# version of openssl.cnf: /etc/openvpn/easy-rsa/2.0/openssl.cnf
+# The correct version should have a comment that says: easy-rsa version 2.x
+# 则可以执行如下命令修复
+# ln -s openssl-1.0.0.cnf openssl.cnf
+ 
+$ ./build-ca
+</code></pre>
+<p>这将会启动创建根证书颁发密钥、证书的过程。由于我们刚才修改了 vars 文件，所有值应该都会自动填充。所以，一路回车就好了：</p>
+<pre><code class="language-bash">Generating a 2048 bit RSA private key
+..........................................................................................+++
+...............................+++
+writing new private key to 'ca.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [CN]:
+State or Province Name (full name) [ZJ]:
+Locality Name (eg, city) [HZ]:
+Organization Name (eg, company) [www.woki.com]:
+Organizational Unit Name (eg, section) [com.woki]:
+Common Name (eg, your name or your server's hostname) [www.woki.com CA]:
+Name [woki]:
+Email Address [wangqiang1588@sina.com]:
+</code></pre>
+<p>现在，我们就有了创建以下步骤需要的 CA 证书。</p>
+<h2 id="5创建服务器端证书-密钥和加密文件">5.创建服务器端证书、密钥和加密文件</h2>
+<p>通过下列命令生成服务器端证书和秘钥：</p>
+<pre><code class="language-bash">$ ./build-key-server server
+</code></pre>
+<p>注：server 就是刚才在 vars 文件中修改的 KEY_NAME 变量的值。请不要使用别的名字！ 然后一直回车选择默认值即可，不要设置 challenge password ，直接回车即可。到最后，你需要输入两次 y 注册证书和提交。</p>
+<pre><code class="language-bash">...
+Certificate is to be certified until May  1 17:51:16 2026 GMT (3650 days)
+Sign the certificate? [y/n]:y
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+</code></pre>
+<p>然后还需要生成一些其他东西。我们可以在密钥交换过程中生成一个强大的 Diffie-Hellman 密钥:</p>
+<pre><code class="language-bash">$./build-dh
+</code></pre>
+<p>这个操作大约会花费几分钟不等。 然后，我们可以生成 HMAC 签名加强服务器的 TLS 完整性验证功能：</p>
+<pre><code class="language-bash">$ openvpn --genkey --secret keys/ta.key
+</code></pre>
+<h2 id="6配置-openvpn-服务">6.配置 OPENVPN 服务</h2>
+<p>首先将刚刚生成的各类文件复制到 OpenVPN 目录下：</p>
+<pre><code class="language-bash">$ cd ~/openvpn/openvpn-ca/keys
+$ sudo cp ca.crt ca.key server.crt server.key ta.key dh2048.pem /etc/openvpn
+</code></pre>
+<p>然后，解压并复制一个 OpenVPN 配置文件到 OpenVPN 目录：</p>
+<pre><code class="language-bash">$ gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
+$ sudo mkdir -p /etc/openvpn/ccd
+</code></pre>
+<p>接着更改配置,去掉注释之后，精简的关键信息如下** /etc/openvpn/server.conf**：</p>
+<pre><code class="language-bash">port 1194
+proto tcp
+dev tun
+ca ca.crt
+cert server.crt
+key server.key
+dh dh2048.pem
+server 10.8.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+client-config-dir ccd
+client-to-client
+keepalive 10 120
+tls-auth ta.key 0
+key-direction 0
+cipher AES-256-CBC
+comp-lzo
+user nobody
+group nogroup
+persist-key
+persist-tun
+status openvpn-status.log
+verb 3
+</code></pre>
+<h2 id="6调整服务器网络配置">6.调整服务器网络配置</h2>
+<p>首先，确认UFW防火墙状态，如果状态为开启，则调整。如果防火墙是关闭的，则不需要调整。</p>
+<pre><code class="language-bash">sudo ufw status
+</code></pre>
+<p>如果输出是<strong>Status: inactive</strong>, 那么不需要进行下面的调整。<br>
+注意，下面的调整如果中间出现问题，可能导致防火墙拦截SSH进而无法进行恢复操作。如果出现问题，可以使用阿里云或者腾讯云提供的远程控制台在网页端进行恢复操作。</p>
+<h2 id="7启动openvpn">7.启动OPENVPN</h2>
+<pre><code class="language-bash">$ sudo mkdir -p /etc/openvpn/ccd
+$ sudo systemctl start openvpn@server
+#如果启动失败，则执行如下命令观察日志
+# sudo tail -f /var/log/syslog
+</code></pre>
+<p>设置开机自启：</p>
+<pre><code class="language-bash">$ sudo systemctl enable openvpn@server
+</code></pre>
+<h1 id="四-阿里云开启端口">四、阿里云开启端口</h1>
+<p>在阿里云管理界面中，配置ECS安全组的1194端口为开放</p>
+<h1 id="五-客户端安装配置">五、客户端安装配置</h1>
+<h2 id="1创建客户端配置">1.创建客户端配置</h2>
+<p>在<strong>服务端</strong>，生成客户端证书、密钥对：</p>
+<pre><code class="language-bash">$ cd ~/openvpn/openvpn-ca
+$ source vars
+$ cp /etc/openvpn/ca.crt ./keys/
+$ sudo cp /etc/openvpn/ca.key ./keys/
+$ sudo cp /etc/openvpn/ta.key ./keys/
+$ sudo chmod 755 ./keys/ca.crt
+$ sudo chmod 755 ./keys/ta.key
+$ ./build-key client-woki
+</code></pre>
+<p><strong>client-woki</strong>为密钥对名称，生成过程中回车选择默认选项即可。<br>
+注意，下面这一步一定要输入 y 否则会跳过最后一步，导致生成证书的时候会缺少部分信息。</p>
+<pre><code class="language-bash">Certificate is to be certified until May 29 11:40:12 2029 GMT (3650 days)
+Sign the certificate? [y/n]:y
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+</code></pre>
+<p><strong>注意，如果有多个客户端的话，建议为每个客户端生成一份配置文件。</strong><br>
+执行下列命令，生成客户端配置的基础文件：</p>
+<pre><code class="language-bash">$ mkdir -p ~/client-configs/files
+$ chmod 700 ~/client-configs/files
+$ cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf ~/client-configs/base.conf  
+</code></pre>
+<p>然后打开 <strong>~/client-configs/base.conf</strong> 文件，修改 <strong>remote my-server-1 1194 <strong>为服务器公网IP或者域名。 然后更改客户端协议为</strong>tcp</strong>,去掉注释后的完整配置为：</p>
+<pre><code class="language-bash">client
+dev tun
+proto tcp
+remote my-server-1 1194
+resolv-retry infinite
+nobind
+user nobody
+group nogroup
+persist-key
+persist-tun
+remote-cert-tls server
+cipher AES-256-CBC
+key-direction 1
+comp-lzo
+verb 3
+</code></pre>
+<h2 id="2创建配置生成脚本">2.创建配置生成脚本</h2>
+<p>新建** ~/client-configs/make_config.sh** 文件，复制如下内容：</p>
+<pre><code class="language-bash">#!/bin/bash
+# First argument: Client identifier
+ 
+cd ~/openvpn/openvpn-ca
+source vars
+./build-key ${1}
+ 
+KEY_DIR=~/openvpn/openvpn-ca/keys
+OUTPUT_DIR=~/client-configs/files
+BASE_CONFIG=~/client-configs/base.conf
+cat ${BASE_CONFIG} \
+    &lt;(echo -e '&lt;ca&gt;') \
+    ${KEY_DIR}/ca.crt \
+    &lt;(echo -e '&lt;/ca&gt;\n&lt;cert&gt;') \
+    ${KEY_DIR}/${1}.crt \
+    &lt;(echo -e '&lt;/cert&gt;\n&lt;key&gt;') \
+    ${KEY_DIR}/${1}.key \
+    &lt;(echo -e '&lt;/key&gt;\n&lt;tls-auth&gt;') \
+    ${KEY_DIR}/ta.key \
+    &lt;(echo -e '&lt;/tls-auth&gt;') \
+    &gt; ${OUTPUT_DIR}/${1}.ovpn
+</code></pre>
+<p>保存并赋予执行权限：</p>
+<pre><code class="language-bash">$ chmod 700 ~/client-configs/make_config.sh
+</code></pre>
+<h2 id="3生成客户端配置">3.生成客户端配置</h2>
+<pre><code class="language-bash">$ cd ~/client-configs
+$ ./make_config.sh client-woki
+</code></pre>
+<p>使用此脚本生成一个配置文件方便客户端使用。 注：需要生成客户端密钥后才可使用脚本生成配置文件，client-woki.ovpn 为刚刚生成的客户端密钥名称 生成后的脚本储存在 ~/client-configs/files 目录下，名称为 client-woki.ovpn。将文件下载到本地即可使用了。</p>
+<h2 id="4为客户端设置固定ip">4.为客户端设置固定IP</h2>
+<p>pass</p>
+<h2 id="5客户端命令行使用">5.客户端命令行使用</h2>
+<p>首先安装OpenVPN, 运行时选择配置为客户端配置文件：</p>
+<pre><code class="language-bash">$ sudo apt install openvpn
+$ sudo openvpn --config client-woki.ovpn
+</code></pre>
+<p>使用此方法可以让家里的电脑或者树莓派等设备实现内网穿透，从而远程连接进行操作。<br>
+对于客户端是macOS的设备来说，推荐使用<a href="https://en.softonic.com/download/tunnelblick/mac/post-download">Tunnelblick</a></p>
+<h2 id="6客户端开机自启">6.<a href="https://ubuntuqa.com/article/10000.html">客户端开机自启</a></h2>
+<p>在Ubuntu上，您放置在名为/etc/openvpn/$NAME.conf的文件中的任何VPN配置都将自动启动。<br>
+因此，您要做的就是将client.ovpn复制到/etc/openvpn/client.conf。我建议您还将client.conf中的绝对路径用于所有键，脚本等。<br>
+当然，您可能需要仔细检查/etc/default/openvpn文件。默认情况下，它将自动启动所有VPN，但AUTOSTART值可能已更改为none，或者是要自动启动的特定配置的列表。</p>
+<h1 id="六-todo">六、TODO</h1>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/57477087">采用Frp</a></li>
+</ul>
+<h1 id="refer">refer:</h1>
+<ul>
+<li>http://www.mobibrw.com/2019/18982?replytocom=3518</li>
+<li>https://www.jzfu.cc/2018/09/04/Ubuntu16-04%E6%90%AD%E5%BB%BAOpenVPN/</li>
+<li>https://www.viayc.com/2019/03/21/OpenVPN%E8%AE%BF%E9%97%AE%E5%85%AC%E5%8F%B8%E5%86%85%E7%BD%91/</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wo-ki.github.io/post/hui-yi-lu/">
+                  <h3 class="post-title">
+                    回忆录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+        <div class="comment"></div>
+        </div>
+      </div>
+    </div>
+   <!--载入js，在</body>之前插入即可-->
+
+<!--    <div class="comment"></div>-->
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+      
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+              lang: 'zh-cn',//设置评论语言
+            emoticon_url: 'https://cloud.panjunwen.com/alu',
+      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+      app_id: '9L51TcKc1RK71QrjjB8jazVy-gzGzoHsz',
+      app_key: 'B1JLE3mnY1vTs7e6elI8hxCV',
+      placeholder: '畅所欲言，pls～'
+        });
+    </script>    
+  </body>
+</html>
