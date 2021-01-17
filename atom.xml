@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-01-15T09:18:21.402Z</updated>
+    <updated>2021-01-17T01:32:35.997Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -266,7 +266,10 @@ $ sudo openvpn --config client-woki.ovpn
 <p>在Ubuntu上，您放置在名为/etc/openvpn/$NAME.conf的文件中的任何VPN配置都将自动启动。<br>
 因此，您要做的就是将client.ovpn复制到/etc/openvpn/client.conf。我建议您还将client.conf中的绝对路径用于所有键，脚本等。<br>
 当然，您可能需要仔细检查/etc/default/openvpn文件。默认情况下，它将自动启动所有VPN，但AUTOSTART值可能已更改为none，或者是要自动启动的特定配置的列表。</p>
-<h1 id="六-todo">六、TODO</h1>
+<h1 id="六-tips">六、tips</h1>
+<h2 id="1-删除errorthere-is-already-a-certificate-for">1. 删除ERROR:There is already a certificate for...</h2>
+<p>vi /openvpn/openvpn-ca/keys/index.txt</p>
+<h1 id="七-todo">七、TODO</h1>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/57477087">采用Frp</a></li>
 </ul>
@@ -295,7 +298,12 @@ $ sudo openvpn --config client-woki.ovpn
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="2021010️14-️">2021010️14 ☀️</h1>
+        <content type="html"><![CDATA[<h1 id="2021010️15-️">2021010️15 ☀️</h1>
+<ul>
+<li>上午本想练车的，结果打会游戏🎮就中午了</li>
+<li>下午去了<strong>汤山一号温泉</strong>♨️，第一次体验室外温泉，还有一个室内恒温游泳池。室外温泉很多，在水下很舒服，不像在浴室🛀，外面的空气很不错。不过，换上岸换温泉还是很难受的，很冷。晚上🌃的自助餐还比较一般</li>
+</ul>
+<h1 id="2021010️14-️">2021010️14 ☀️</h1>
 <ul>
 <li>搞了一下午的openVPN，好几次想放弃，想使用Frp，还是坚持下来了</li>
 <li></li>

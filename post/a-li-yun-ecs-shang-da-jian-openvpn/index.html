@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1610702298500">
+<link rel="shortcut icon" href="https://wo-ki.github.io/favicon.ico?v=1610847152840">
 <link rel="stylesheet" href="https://wo-ki.github.io/styles/main.css">
 
 
@@ -40,7 +40,7 @@ openVPN可以借助有公网的设备（本文是阿里云ECS），将内网机�
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wo-ki.github.io">
-        <img src="https://wo-ki.github.io/images/avatar.png?v=1610702298500" class="site-logo">
+        <img src="https://wo-ki.github.io/images/avatar.png?v=1610847152840" class="site-logo">
         <h1 class="site-title">Wo-Ki</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -356,7 +356,10 @@ $ sudo openvpn --config client-woki.ovpn
 <p>在Ubuntu上，您放置在名为/etc/openvpn/$NAME.conf的文件中的任何VPN配置都将自动启动。<br>
 因此，您要做的就是将client.ovpn复制到/etc/openvpn/client.conf。我建议您还将client.conf中的绝对路径用于所有键，脚本等。<br>
 当然，您可能需要仔细检查/etc/default/openvpn文件。默认情况下，它将自动启动所有VPN，但AUTOSTART值可能已更改为none，或者是要自动启动的特定配置的列表。</p>
-<h1 id="六-todo">六、TODO</h1>
+<h1 id="六-tips">六、tips</h1>
+<h2 id="1-删除errorthere-is-already-a-certificate-for">1. 删除ERROR:There is already a certificate for...</h2>
+<p>vi /openvpn/openvpn-ca/keys/index.txt</p>
+<h1 id="七-todo">七、TODO</h1>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/57477087">采用Frp</a></li>
 </ul>
