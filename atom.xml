@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-01-18T02:20:37.716Z</updated>
+    <updated>2021-01-18T02:24:12.137Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -288,7 +288,12 @@ $ sudo openvpn --config client-woki.ovpn
         </link>
         <updated>2021-01-10T09:15:33.000Z</updated>
         <content type="html"><![CDATA[<ul>
-<li>小学时，没有带水杯的习惯，很多都没有，基本上都是喝水井里现<strong>压</strong>上来的，现在想想的确不健康。偶尔，老师下课时，会问谁想喝茶缸里剩下的茶水🍵，不是很多人会上讲台喝，我竟然忘记曾经是否有喝过，但记忆中有茶缸里很多茶锈的样子，可能是臆想的</li>
+<li>
+<p>老家过小年有个习俗，当天财神爷会到每个人家里点人数，人越多来年分的钱财💰越多，所以外公每到过小年就要把外甥、外甥女叫来，比过大年还团圆👪</p>
+</li>
+<li>
+<p>小学时，没有带水杯的习惯，很多都没有，基本上都是喝水井里现<strong>压</strong>上来的，现在想想的确不健康。偶尔，老师下课时，会问谁想喝茶缸里剩下的茶水🍵，不是很多人会上讲台喝，我竟然忘记曾经是否有喝过，但记忆中有茶缸里很多茶锈的样子，可能是臆想的</p>
+</li>
 </ul>
 ]]></content>
     </entry>
