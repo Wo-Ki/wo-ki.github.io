@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-01-18T02:24:12.137Z</updated>
+    <updated>2021-01-19T08:30:38.320Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -32,6 +32,16 @@
 更新你的服务器包索引并安装必要的包类型：</p>
 <pre><code class="language-bash">$ sudo apt-get update
 $ sudo apt-get install openvpn easy-rsa
+</code></pre>
+<p>源码安装（for centOS）：</p>
+<pre><code class="language-bash">wget https://github.com/OpenVPN/openvpn/archive/v2.4.9.tar.gz
+mv v2.4.9.tar.gz openvpn-2.4.9.tar.gz
+tar xf openvpn-2.4.9.tar.gz 
+cd openvpn-2.4.9/
+autoreconf -i -v -f
+./configure --prefix=/usr/local/openvpn --enable-lzo --enable-lz4 --enable-crypto --enable-server --enable-plugins --enable-port-share --enable-iproute2 --enable-pf --enable-plugin-auth-pam --enable-pam-dlopen --enable-systemd
+make &amp;&amp; make install
+ln -s /usr/local/openvpn/sbin/openvpn /usr/local/sbin/openvpn
 </code></pre>
 <h2 id="2设置ca目录">2.设置CA目录</h2>
 <p>OpenVPN 是使用 TLS/SSL 的 VPN。这意味着它利用证书来加密服务器和客户端之间的通信。为了发布受信任的证书，我们需要建立一个自己的简单的证书颁发机构(CA)。 使用 <strong>make-cadir</strong> 命令复制 easy-rsa 模板到 home 目录</p>
@@ -269,6 +279,26 @@ $ sudo openvpn --config client-woki.ovpn
 <h1 id="六-tips">六、tips</h1>
 <h2 id="1-删除errorthere-is-already-a-certificate-for">1. 删除ERROR:There is already a certificate for...</h2>
 <p>vi /openvpn/openvpn-ca/keys/index.txt</p>
+<h2 id="2centos下报错">2.CentOS下报错</h2>
+<pre><code class="language-bash">2021-01-18 14:35:19 DEPRECATED OPTION: --cipher set to 'AES-128-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-128-CBC' to --data-ciphers or change --cipher 'AES-128-CBC' to --data-ciphers-fallback 'AES-128-CBC' to silence this warning.
+2021-01-18 14:35:19 OpenVPN 2.5.0 x86_64-unknown-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [MH/PKTINFO] [AEAD] built on Jan 18 2021
+2021-01-18 14:35:19 library versions: OpenSSL 1.0.2k-fips  26 Jan 2017, LZO 2.06
+2021-01-18 14:35:19 Outgoing Control Channel Authentication: Using 256 bit message hash 'SHA256' for HMAC authentication
+2021-01-18 14:35:19 Incoming Control Channel Authentication: Using 256 bit message hash 'SHA256' for HMAC authentication
+2021-01-18 14:35:19 failed to find GID for group nogroup
+2021-01-18 14:35:19 Exiting due to fatal error
+</code></pre>
+<p>解决方法：</p>
+<pre><code class="language-bash">user nobody
+group nogroup
+</code></pre>
+<p>to：</p>
+<pre><code class="language-bash">user nobody
+group nobody
+</code></pre>
+<h2 id="3服务端查看所有客户端ip">3.<a href="https://qastack.cn/server/571592/how-to-view-connected-users-to-open-vpn-server">服务端查看所有客户端ip</a></h2>
+<pre><code class="language-bash">cat /etc/openvpn/openvpn-status.log
+</code></pre>
 <h1 id="七-todo">七、TODO</h1>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/57477087">采用Frp</a></li>
@@ -278,6 +308,7 @@ $ sudo openvpn --config client-woki.ovpn
 <li>http://www.mobibrw.com/2019/18982?replytocom=3518</li>
 <li>https://www.jzfu.cc/2018/09/04/Ubuntu16-04%E6%90%AD%E5%BB%BAOpenVPN/</li>
 <li>https://www.viayc.com/2019/03/21/OpenVPN%E8%AE%BF%E9%97%AE%E5%85%AC%E5%8F%B8%E5%86%85%E7%BD%91/</li>
+<li>http://www.zhangblog.com/2020/05/09/openvpn01/</li>
 </ul>
 ]]></content>
     </entry>
@@ -303,7 +334,17 @@ $ sudo openvpn --config client-woki.ovpn
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="2021010️16-️">2021010️16 ☀️</h1>
+        <content type="html"><![CDATA[<h1 id="2021010️19-️">2021010️19 ☀️</h1>
+<ul>
+<li>昨天没有锻炼，估计今天还是不行，身体痛（估计是摔的）</li>
+<li>晚上练车吧</li>
+</ul>
+<h1 id="2021010️18-️">2021010️18 ☀️</h1>
+<ul>
+<li>穿上带有<strong>JSAI</strong>的卫衣，被老板认出来了。这衣服静电真恐怖</li>
+<li>看了看视频啥的还真不能跳。看张京坤的<strong>坤哥教你骑</strong>，没看第一节的装备介绍，还买错了鞋子，以为锁鞋不用锁踏也可以很抓，买了<strong>迪卡龙</strong>的一款比较通用的户外鞋，可以支持PSD锁鞋，还可以登山🧗‍♀️啥的。原来实际并不适合平踏，因为鞋底的纹理啥的不适合平踏。原来还有XC车鞋，适合长时间踩踏，林道车手更多穿<strong>five ten</strong>的鞋👟，懂了，过完年再买</li>
+</ul>
+<h1 id="2021010️17-️">2021010️17 ☀️</h1>
 <ul>
 <li>上午解决了openVPN的重复生成Key导致的错误</li>
 <li>下午计划去<strong>拥翠亭</strong>，非常不幸。到入口好多人来骑车，几乎都是去头陀岭的，不过早就封山了。从旁边的小道走，下楼地摔了一跤，耳机🎧掉了立马捡起来了，走一回发现手机没了，会有有人帮我捡起来了。又骑了一会，发现水不见了，回头找，被两个警察👮‍♀️撞上了，先是温馨的提示：山路滑，我回复：所以挑一个天气好的☀️。然后，他说：再看到你罚款50💰，立马回复：谢谢谢谢🙏</li>
@@ -311,7 +352,7 @@ $ sudo openvpn --config client-woki.ovpn
 <li>回头走在<strong>环陵路</strong>的塑胶跑道上，发现一个小路的门开了，索性进去看看，结果好几条<strong>狗</strong>🐶跑出来叫</li>
 <li>太惨了</li>
 </ul>
-<h1 id="2021010️15-️">2021010️15 ☀️</h1>
+<h1 id="2021010️16️">2021010️16☀️</h1>
 <ul>
 <li>上午本想练车的，结果打会游戏🎮就中午了</li>
 <li>下午去了<strong>汤山一号温泉</strong>♨️，第一次体验室外温泉，还有一个室内恒温游泳池。室外温泉很多，在水下很舒服，不像在浴室🛀，外面的空气很不错。不过，换上岸换温泉还是很难受的，很冷。晚上🌃的自助餐还比较一般</li>
