@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-01-19T08:30:38.320Z</updated>
+    <updated>2021-01-20T13:15:24.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -334,7 +334,13 @@ group nobody
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="2021010️19-️">2021010️19 ☀️</h1>
+        <content type="html"><![CDATA[<h1 id="2021010️20-️">2021010️20 ☀️</h1>
+<ul>
+<li>为啥有些带Nvidia显卡的ubuntu是从主板的vga显示接口输出，而有些是从显卡？</li>
+<li>从显卡输出视频的机器，安装ubuntu竟然会出现黑屏。。。因为显卡驱动不兼容。。。。</li>
+<li>LVM这个玩意，竟然把三块硬盘组合成一块，少一块都不能挂载。。结果机器少了一个sata接口，还好从一个硬盘盒子拆了sata2usb的转接口，不然还真是麻烦</li>
+</ul>
+<h1 id="2021010️19-️">2021010️19 ☀️</h1>
 <ul>
 <li>昨天没有锻炼，估计今天还是不行，身体痛（估计是摔的）</li>
 <li>晚上练车吧</li>
