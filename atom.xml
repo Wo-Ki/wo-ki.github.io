@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-01-20T13:15:24.844Z</updated>
+    <updated>2021-01-24T11:52:17.702Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -334,7 +334,28 @@ group nobody
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="2021010️20-️">2021010️20 ☀️</h1>
+        <content type="html"><![CDATA[<h1 id="2021010️24-️">2021010️24 ☁️</h1>
+<ul>
+<li>今天回老家。一大早头脑🧠不清醒，结果刮胡刀🪒和电动牙刷🪥都忘了带了，昨晚还给刮胡刀充电🔋</li>
+<li>还好奇，这个时间段会有谁会回老家，结果同位置的就是一个美女，，，太尴尬了，主要是，人家不玩手机，像是在发呆</li>
+<li>妹妹一直等到我回去才去学校，电动牙刷🪥忘了给了。。</li>
+</ul>
+<h1 id="2021010️23-️">2021010️23 ☁️</h1>
+<ul>
+<li>今天继续弄机器磁盘，终于搞好了，openvpn走起</li>
+<li>早到了一个下载高清电影的网站，结果电脑磁盘不够，好多硬盘都是FAT32的，，，太惨了</li>
+</ul>
+<h1 id="2021010️22-️">2021010️22 ☀️</h1>
+<ul>
+<li>今天弄了那个LVM，真是麻烦，直接备份文件然后格式化了。太菜了</li>
+<li>中午就公司这边聚餐了一下</li>
+<li>下午去了电信开会，晚上去了小米，给妹妹来了个电动牙刷🪥，还买了两幅牙刷头</li>
+</ul>
+<h1 id="2021010️21-️">2021010️21 ☀️</h1>
+<ul>
+<li>去<strong>中山大厦</strong>参加会议，很有档次。完成就在那吃饭，还有五粮液，查了一下大概一千多一瓶，赚到了</li>
+</ul>
+<h1 id="2021010️20-️">2021010️20 ☀️</h1>
 <ul>
 <li>为啥有些带Nvidia显卡的ubuntu是从主板的vga显示接口输出，而有些是从显卡？</li>
 <li>从显卡输出视频的机器，安装ubuntu竟然会出现黑屏。。。因为显卡驱动不兼容。。。。</li>
