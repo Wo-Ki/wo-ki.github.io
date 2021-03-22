@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-03-19T01:39:13.228Z</updated>
+    <updated>2021-03-22T11:07:01.340Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -337,7 +337,29 @@ group nobody
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="202103018-️">202103018 ☁️</h1>
+        <content type="html"><![CDATA[<h1 id="202103022">202103022 🌞</h1>
+<ul>
+<li>竟然拉肚了，看来不能乱吃东西。用饿么了买了肠炎宁</li>
+<li>看了看python cuda，竟然这么厉害，先学学</li>
+</ul>
+<h1 id="202103021-️">202103021 ☁️</h1>
+<ul>
+<li>非常生气。一个项目，一旦妥协，就不可收拾，直接怼回去。以后周末也不想回复项目的问题了</li>
+<li>中午吃了好多，吃完就回去了，高铁上又睡着了</li>
+<li>晚上复习了一下组会的ppt，差不多忘完了</li>
+</ul>
+<h1 id="202103020-️">202103020 ☁️</h1>
+<ul>
+<li>早上坐高铁，还没上车，在电梯上就有人说闻到了榴莲味，这可咋整。还好座位旁边没有人</li>
+<li>去无锡第一感觉就是很困，到哪就想睡，下午睡了晚上也睡得早</li>
+<li>晚上把吃了点榴莲，味道很不错</li>
+</ul>
+<h1 id="202103019-️">202103019 ☁️</h1>
+<ul>
+<li>姨姐生小孩了，明天去无锡看看，买个非常“实惠”的榴莲</li>
+<li>晚上练了个背，没力气了又去练肩膀</li>
+</ul>
+<h1 id="202103018-️">202103018 ☁️</h1>
 <ul>
 <li>报告无人机ppt真的是卡壳，这种总结性的东西玩不来</li>
 <li>vivado hls仿真成功了，结果经过vivado导出的bit文件在pynq无法运行，有卡壳了</li>
