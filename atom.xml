@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wo-ki.github.io</id>
     <title>Wo-Ki</title>
-    <updated>2021-04-12T08:11:13.057Z</updated>
+    <updated>2021-04-16T09:28:30.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wo-ki.github.io"/>
     <link rel="self" href="https://wo-ki.github.io/atom.xml"/>
@@ -337,7 +337,26 @@ group nobody
         <link href="https://wo-ki.github.io/post/bi-mian-wang-ji/">
         </link>
         <updated>2020-12-13T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="20210412-️">20210412 ☁️</h1>
+        <content type="html"><![CDATA[<h1 id="20210416-️">20210416 ☁️</h1>
+<ul>
+<li>今天腿🦵酸痛，希望明天就好了</li>
+</ul>
+<h1 id="20210415-️">20210415 ☁️</h1>
+<ul>
+<li>整实验压缩指标真头疼</li>
+<li>CUDA python、FPGA、NCS都想学，就是抓不住</li>
+</ul>
+<h1 id="20210414-️">20210414 ☁️</h1>
+<ul>
+<li>深度方法的视频压缩，比传统还慢，压缩比还小，简直了</li>
+<li>昨天喝了点扎啤🍺，昨晚睡的超级好，就是早上起来头有点昏</li>
+<li>想想周末上山，明天练腿估计就废了，只好今晚练吧</li>
+</ul>
+<h1 id="20210413-️">20210413 ☁️</h1>
+<ul>
+<li>看来今晚还没法去锻炼，因为人脸项目要去聚餐</li>
+</ul>
+<h1 id="20210412-️">20210412 ☁️</h1>
 <ul>
 <li>视频压缩🗜️的训练数据好像不用标记诶</li>
 <li>fpga这玩意真头疼，看不下去</li>
